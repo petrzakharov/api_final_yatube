@@ -25,11 +25,11 @@ paths:
         - POSTS
       description: Получить список всех публикаций
       parameters:
-      - name: group
-        in: query
-        description: ID группы
-        schema:
-          type: number
+        - name: group
+          in: query
+          description: ID группы
+          schema:
+            type: number
       responses:
         200:
           description: Список публикаций
@@ -43,7 +43,7 @@ paths:
       tags:
         - POSTS
       description: Создать новую публикацию
-      parameters: []
+      parameters: [ ]
       requestBody:
         content:
           application/json:
@@ -62,12 +62,12 @@ paths:
         - POSTS
       description: Получить публикацию по id
       parameters:
-      - name: id
-        in: path
-        required: true
-        description: ID публикации
-        schema:
-          type: number
+        - name: id
+          in: path
+          required: true
+          description: ID публикации
+          schema:
+            type: number
       responses:
         200:
           description: Публикация
@@ -86,12 +86,12 @@ paths:
         - POSTS
       description: 'Обновить публикацию по id'
       parameters:
-      - name: id
-        in: path
-        required: true
-        description: ID публикации
-        schema:
-          type: number
+        - name: id
+          in: path
+          required: true
+          description: ID публикации
+          schema:
+            type: number
       requestBody:
         content:
           application/json:
@@ -115,12 +115,12 @@ paths:
         - POSTS
       description: Частично обновить публикацию по id
       parameters:
-      - name: id
-        in: path
-        required: true
-        description: ID публикации
-        schema:
-          type: number
+        - name: id
+          in: path
+          required: true
+          description: ID публикации
+          schema:
+            type: number
       requestBody:
         content:
           application/json:
@@ -144,12 +144,12 @@ paths:
         - POSTS
       description: Удалить публикацию по id
       parameters:
-      - name: id
-        in: path
-        required: true
-        description: ID публикации
-        schema:
-          type: number
+        - name: id
+          in: path
+          required: true
+          description: ID публикации
+          schema:
+            type: number
       responses:
         204:
           description: ''
@@ -159,12 +159,12 @@ paths:
         - COMMENTS
       description: 'Получить список всех комментариев публикации'
       parameters:
-      - name: post_id
-        in: path
-        required: true
-        description: ID публикации
-        schema:
-          type: number
+        - name: post_id
+          in: path
+          required: true
+          description: ID публикации
+          schema:
+            type: number
       responses:
         200:
           content:
@@ -180,17 +180,17 @@ paths:
         - COMMENTS
       description: 'Создать новый комментарий для публикации'
       parameters:
-      - name: post_id
-        in: path
-        required: true
-        description: ID публикации
-        schema:
-          type: number
+        - name: post_id
+          in: path
+          required: true
+          description: ID публикации
+          schema:
+            type: number
       responses:
         200:
           content:
             application/json:
-              schema: {}
+              schema: { }
           description: ''
   /posts/{post_id}/comments/{comment_id}/:
     get:
@@ -198,87 +198,87 @@ paths:
         - COMMENTS
       description: 'Получить комментарий для публикации по id'
       parameters:
-      - name: post_id
-        in: path
-        required: true
-        description: ID публикации
-        schema:
-          type: number
-      - name: comment_id
-        in: path
-        required: true
-        description: ID комментария
-        schema:
-          type: number
+        - name: post_id
+          in: path
+          required: true
+          description: ID публикации
+          schema:
+            type: number
+        - name: comment_id
+          in: path
+          required: true
+          description: ID комментария
+          schema:
+            type: number
       responses:
         200:
           content:
             application/json:
-              schema: {}
+              schema: { }
           description: ''
     put:
       tags:
         - COMMENTS
       description: 'Обновить комментарий для публикации по id'
       parameters:
-      - name: post_id
-        in: path
-        required: true
-        description: ID публикации
-        schema:
-          type: number
-      - name: comment_id
-        in: path
-        required: true
-        description: ID комментария
-        schema:
-          type: number
+        - name: post_id
+          in: path
+          required: true
+          description: ID публикации
+          schema:
+            type: number
+        - name: comment_id
+          in: path
+          required: true
+          description: ID комментария
+          schema:
+            type: number
       responses:
         200:
           content:
             application/json:
-              schema: {}
+              schema: { }
           description: ''
     patch:
       tags:
         - COMMENTS
       description: 'Частично обновить комментарий для публикации по id'
       parameters:
-      - name: post_id
-        in: path
-        required: true
-        description: ID публикации
-        schema:
-          type: number
-      - name: comment_id
-        in: path
-        required: true
-        description: ID комментария
-        schema:
-          type: number
+        - name: post_id
+          in: path
+          required: true
+          description: ID публикации
+          schema:
+            type: number
+        - name: comment_id
+          in: path
+          required: true
+          description: ID комментария
+          schema:
+            type: number
       responses:
         200:
           content:
             application/json:
-              schema: {}
+              schema: { }
           description: ''
     delete:
       tags:
         - COMMENTS
       description: 'Удалить комментарий для публикации по id'
       parameters:
-      - name: post_id
-        in: path
-        required: true
-        description: ID публикации
-        schema:
-          type: number
-      - name: comment_id
-        in: path
-        required: true
-        description: ID комментария
-        schema:
-          type: number
+        - name: post_id
+          in: path
+          required: true
+          description: ID публикации
+          schema:
+            type: number
+        - name: comment_id
+          in: path
+          required: true
+          description: ID комментария
+          schema:
+            type: number
       responses:
         204:
           description: ''
@@ -318,7 +318,7 @@ paths:
       tags:
         - AUTH
       description: Обновить JWT-токен
-      parameters: []
+      parameters: [ ]
       requestBody:
         content:
           application/json:
@@ -337,7 +337,7 @@ paths:
                   refresh:
                     type: string
                 required:
-                - refresh
+                  - refresh
           description: ''
 
   /follow/:
@@ -346,11 +346,11 @@ paths:
         - FOLLOW
       description: Получить список всех подписчиков
       parameters:
-      - name: search
-        in: query
-        description: username тот кто подписан или на кого подписаны
-        schema:
-          type: string
+        - name: search
+          in: query
+          description: username тот кто подписан или на кого подписаны
+          schema:
+            type: string
       responses:
         200:
           description: Список подписчиков
@@ -365,11 +365,11 @@ paths:
         - FOLLOW
       description: Создать подписку
       parameters:
-      - name: user
-        in: query
-        description: Пользователь для фильтрации по подписчикам
-        schema:
-          type: string
+        - name: user
+          in: query
+          description: Пользователь для фильтрации по подписчикам
+          schema:
+            type: string
       requestBody:
         content:
           application/json:
@@ -394,7 +394,7 @@ paths:
       tags:
         - GROUP
       description: Получить список всех групп
-      parameters: []
+      parameters: [ ]
       responses:
         200:
           description: Список групп
@@ -408,7 +408,7 @@ paths:
       tags:
         - GROUP
       description: Создать новую группу
-      parameters: []
+      parameters: [ ]
       requestBody:
         content:
           application/json:
@@ -430,7 +430,7 @@ components:
       type: object
       description: Детальная информация поста
       required:
-          - text
+        - text
       properties:
         id:
           type: integer
@@ -471,7 +471,7 @@ components:
       type: object
       description: Детальная информация комментария
       required:
-          - text
+        - text
       properties:
         id:
           type: integer
