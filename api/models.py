@@ -1,4 +1,5 @@
 from django.contrib.auth import get_user_model
+
 from django.db import models
 
 User = get_user_model()
@@ -11,6 +12,10 @@ class Post(models.Model):
     )
     author = models.ForeignKey(
         User, on_delete=models.CASCADE, related_name="posts"
+    )
+    group = models.ForeignKey(
+        "Group", related_name="posts", blank=True,
+        null=True, on_delete=models.SET_NULL, verbose_name="Группа"
     )
 
     def __str__(self):
@@ -28,3 +33,24 @@ class Comment(models.Model):
     created = models.DateTimeField(
         "Дата добавления", auto_now_add=True, db_index=True
     )
+
+
+class Follow(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE,
+                             verbose_name="Подписчик", related_name="follower")
+    following = models.ForeignKey(User, on_delete=models.CASCADE,
+                                  verbose_name="Автор",
+                                  related_name="following")
+
+    class Meta:
+        constraints = [
+            models.UniqueConstraint(fields=['user', 'following'],
+                                    name='unique_follow'),
+        ]
+
+
+class Group(models.Model):
+    title = models.CharField(max_length=200)
+
+    def __str__(self):
+        return self.title
